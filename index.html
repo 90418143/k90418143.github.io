@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>莊澤緯的個人檔案</title>
-    <center>
-  </head>
-  <h1>莊澤緯的個人檔案</h1>
-    <hr >
-  <img src="image1.jpg" height="100" width=""><br />
-  <body background="image3.jpg">
-大家好我叫做莊澤緯<br />
-我的生日是85/11/10<br />
-星座是天蠍<br />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>點圖片</title>
+</head>
+<body>
+    <h2>照片集</h2>
+    <img src="pic00.jpg" alt="" onmousedown="this.src=nextImage()" onmouseover="this.src=randomImage()">
+    <script>
+        var curIndex=0;
+        var imgArray=new Array();
+        var pics=7;
 
-<img src="image2.jpg" height="500" width=""　alt="流亡黯道" title="網路擷取"><br />
-我的興趣是打遊戲，做遊戲應該是不太行，哈哈<br />
-
-  </body>
-</center>
+        for (i=0;i<pics;i++){
+        imgArray[i]=new Image();
+        imgArray[i].src = "pic0" + i + ".jpg";
+        }
+        function nextImage(){
+            curIndex++;
+            curIndex=curIndex % pics;
+            return(imgArray[curIndex].src);
+        }
+        function randomImage(){
+            curIndex=Math.floor(Math.random()*imgArray.length);
+            return (imgArray[curIndex].src);
+        }
+    </script>
+</body>
 </html>
