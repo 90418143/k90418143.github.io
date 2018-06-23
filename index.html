@@ -1,62 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>點圖片</title>
-</head>
-<body onload="startClock()" onunload="stopClock()">
-        <div id="show"></div>
-    <h2>照片集</h2>
+  <head>
+    <title>寵物書籍導覽</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <img src="pic00.jpg" alt="" onmousedown="this.src=nextImage()" onmouseover="this.src=randomImage()">
-    <script>
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <style>
+    .bg{
+        background:  #FFDDAA;
+    }
+    </style>
+<body class="bg">
+        <div id="linkweb"><!-- 時間 -->
+                <script>
+                setInterval("linkweb.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000); 
+                </script>
+        </div>
         
-        var curIndex=0;
-        var imgArray=new Array();
-        var pics=7;
-
-        for (i=0;i<pics;i++){
-        imgArray[i]=new Image();
-        imgArray[i].src = "pic0" + i + ".jpg";
-        }
-        function nextImage(){
-            curIndex++;
-            curIndex=curIndex % pics;
-            return(imgArray[curIndex].src);
-        }
-        function randomImage(){
-            curIndex=Math.floor(Math.random()*imgArray.length);
-            return (imgArray[curIndex].src);
-        }
-
-
-        var timer = null;
-// 顯示數字圖片
-function displayClock(num) {
-  var dig = parseInt(num/10);
-  var timetag="<img src='images\\" + dig + ".gif'>";
-  dig = num%10;
-  timetag +="<img src='images\\" + dig + ".gif'>";
-  return timetag;
-}
-// 停止計時
-function stopClock() {
-   clearTimeout(timer);
-}
-// 開始計時
-function startClock() {
-   var time = new Date();
-   // 取得時間
-   var hours = displayClock(time.getHours()) + ":";
-   var minutes = displayClock(time.getMinutes()) + ":";
-   var seconds = displayClock(time.getSeconds());
-   // 顯示時間
-   show.innerHTML = hours + minutes + seconds;
-   timer = setTimeout("startClock()",1000);
-}
-    </script>
+        <div class="row header justify-content-md-center"><!-- 開頭logo -->
+        <div class="col-2">
+        <img class="img-fluid" src="img/abc.jpg" alt="">
+        </div>
+        <div class="col-3">
+            <div class="row h1">
+                <span>寵物書籍導覽</span>
+            </div>
+        </div>
+        </div>
+     
+        <div class="row justify-content-md-center"><!-- logo下面那個 -->
+          <div class="col-10">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light h5">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>首頁<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="https://www.kingstone.com.tw/book/book_class.asp?class_id=EHD"><i class="fa fa-file" aria-hidden="true"></i>養狗書籍</a>
+            <a class="nav-item nav-link" href="https://www.kingstone.com.tw/book/book_class.asp?class_id=EHC"><i class="fa fa-file" aria-hidden="true"></i>養貓書籍</a>
+            <a class="nav-item nav-link" href="ind1x.html"><i class="fa fa-file" aria-hidden="true"></i>小介紹</a>
+        </div>
+        </div>
+        </div>
+      </div>
     
+    <div class="row justify-content-md-center"> <!-- 跑馬燈 -->
+            <div class="col-10">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                         <div class="carousel-item active">
+                            <img class="d-block w-100" src="img/zxc1.jpg" alt="First slide">
+                         </div>
+                         <div class="carousel-item">
+                            <img class="d-block w-100" src="img/zxc2.jpg" alt="Second slide">
+                         </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+        <div class="row justify-content-md-center"> <!-- 可以點擊的 -->
+        <div class="col-10">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">養狗書籍</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">養貓書籍</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="img/abc1.jpg" alt="">
+                                    <div>我家狗狗吃得比我好</div>
+                                    <div>狗狗的皮膚病老是反覆發作，怎麼吃藥都沒用該怎麼辦？</div>
+                                </div>
+                                <div class="col-3">
+                                    <img src="img/abc2.jpg" alt="">
+                                    <div>狗狗在跟你說話</div>
+                                    <div>每一位毛小孩都希望主人看的書！</div>
+                                </div>
+                                <div class="col-3">
+                                    <img src="img/abc3.jpg" alt="">
+                                    <div>有效解決狗狗的100個問題</div>
+                                    <div>狗狗主人們最常發問、最急著解決的問題大集合！</div>
+                                </div>
+                                <div class="col-3">
+                                    <img src="img/abc4.jpg" alt="">
+                                    <div>熊爸教你了解狗狗的心事</div>
+                                    <div>不打不罵不處罰， 一樣可以教出乖巧快樂的好狗狗！</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                    <div class="col-3">
+                                        <img src="img/abc5.jpg" alt="">
+                                        <div>貓來了，是要教人得療癒</div>
+                                        <div>前所未有的貓心靈探討，絕對提升貓奴經驗值。</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="img/abc6.jpg" alt="">
+                                        <div>黃阿瑪的後宮生活：貓永遠是對的</div>
+                                        <div>沒關係， 只要有愛， 貓永遠是對的！ </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="img/abc7.jpg" alt="">
+                                        <div>全圖解貓咪行為學</div>
+                                        <div>解答每個愛貓人與飼主最常見的貓咪問題</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="img/abc8.jpg" alt="">
+                                        <div>貓飯：貓咪飲食聖經</div>
+                                        <div>為愛喵人打造全面照護的貓咪飲食聖經。</div>
+                                    </div>
+                            </div>
+                        </div>
+                      </div>
+        </div>
+    </div>
+
+        <div class="row footer justify-content-md-center"> <!-- 結尾logo -->
+        <div class="col-2">
+            <img class="img-fluid" src="img/abc.jpg" alt="">
+        </div>
+        <div class="col-3 row h2">
+            <small>
+                書籍面擺、落量陳列、單書陳列架、強力推薦書…等。<br />
+            </small>
+        </div>
+    </div>
+    
+         
+         
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

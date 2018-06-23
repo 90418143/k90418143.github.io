@@ -1,0 +1,6 @@
+<div class="ui-block-a">
+        <a href="" data-icon="star" data-role="button" data-theme="b" rel="external"></a>
+      </div>
+			<div class="ui-block-b">
+        <a href="" data-icon="star" data-role="button" data-theme="b" rel="external"></a>
+      </div>
